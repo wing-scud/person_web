@@ -1,15 +1,19 @@
 <template>
 <div class="main">
-    <SliderBar :width="100" backgroundColor="#ffffff" :list="list" v-on:sliderClick="handclick"></SliderBar>
-    <component :is="mainPart" />
+    <div class="slider">
+        <SliderBar :width="300" backgroundColor="#ffffff" :list="list" v-on:sliderClick="handclick"></SliderBar>
+    </div>
+    <div class="center">
+        <component :is="mainPart" />
+    </div>
 </div>
 </template>
 
 <script>
-import Home from "./view/Home"
-import Introduction from "./view/Introduction"
-import Project from "./view/Project"
-import Blog from "./view/Blog"
+import Home from "./view/Home/Home"
+import Introduction from "./view/Introduction/Introduction"
+import Project from "./view/Project/Project"
+import Blog from "./view/Blog/Blog"
 export default {
     name: "Index",
     components: {
@@ -21,7 +25,7 @@ export default {
     data() {
         return {
             list: [],
-            mainPart: "Home"
+            mainPart: "Introduction"
         }
     },
     mounted() {
@@ -53,5 +57,23 @@ export default {
 .main {
     width: 100%;
     height: 100%;
+    display: flex;
+}
+
+.slider {
+    width: 300px;
+    height: 100%;
+    margin: 0 20px 0 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.center {
+    width: calc(100% - 320px);
+    height: 100%;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
 }
 </style>
