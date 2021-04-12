@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "element-ui": "^2.14.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -33,7 +34,7 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "no-debugger":"off",
+      "no-debugger": "off",
       "no-console": "off"
     }
   },

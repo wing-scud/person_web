@@ -3,32 +3,36 @@
     <div class="slider">
         <SliderBar :width="300" backgroundColor="#ffffff" :list="list" v-on:sliderClick="handclick"></SliderBar>
     </div>
-    <div class="center">
-        <component :is="mainPart" />
+    <!-- Css样式修改，太冗余了，可以简化这些CSS-->
+    <div class="center" :style="{height:screenHeight-2*60+'px',width:screenWidth-340-2*50-2*100+'px'}">
+        <component :is="mainPart" :height="screenHeight" :width="screenWidth"/>
     </div>
 </div>
 </template>
 
 <script>
-import Home from "./view/Home/Home"
 import Introduction from "./view/Introduction/Introduction"
 import Project from "./view/Project/Project"
 import Blog from "./view/Blog/Blog"
+import Home from "./view/Home/Home"
 export default {
     name: "Index",
     components: {
-        Home,
         Introduction,
         Project,
-        Blog
+        Blog,
+        Home
     },
     data() {
         return {
             list: [],
-            mainPart: "Introduction"
+            mainPart: "Home",
+            screenWidth: 1920,
+            screenHeight: 1080
         }
     },
     mounted() {
+        const instance = this;
         this.list = [{
             name: '个人介绍',
             id: 'Introduction'
@@ -38,14 +42,30 @@ export default {
         }, {
             name: '博客',
             id: 'Blog'
+        }, {
+            name: '主页',
+            id: 'Home'
         }];
-
+        window.onresize = function () {
+            window.screenWidth = document.body.clientWidth;
+            window.screenHeight = document.body.clientHeight;
+            instance.screenWidth = window.screenWidth;
+            instance.screenHeight = window.screenHeight;
+        }
+          window.onresize()
     },
     methods: {
         handclick(id, e) {
             this.mainPart = id;
             console.log(id)
             e;
+        }
+    },
+    watch: {
+        screenWidth: {
+            handler() {
+                console.log(this.screenWidth)
+            }
         }
     }
 };
@@ -70,9 +90,10 @@ export default {
 }
 
 .center {
-    width: calc(100% - 320px);
-    height: 100%;
-    display: flex;
+    padding: 60px 100px;
+    margin: 0 50px;
+    overflow: hidden;
+    /* display: flex; */
     /* align-items: center;
     justify-content: center; */
 }

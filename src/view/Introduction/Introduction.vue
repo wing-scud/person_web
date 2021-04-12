@@ -5,69 +5,64 @@
         你需要的都在这里。
     </div>
     <div class="mainPart">
-        <div class="social">
-            <div class="socialRela">
-                <div class="socialTitle">
-                    社交网络
-                </div>
-                <div class="relaBar" v-for="i in 5" :key="i">
-                    <div class="relaLogo">
-                        <img src="@/assets/腾讯qq.jpg" class="logo">
-                    </div>
-                    <div class="relaInfor">
-                        <div class="relaName">
-                            腾讯
-                        </div>
-                        <div class="relaNumber">
-                            1205586003@qq.com
-                        </div>
-                    </div>
-                </div>
+        <div class="socialRelaLeft">
+            <div class="socialTitle">
+                社交网络
             </div>
-            <div class="socialMedia">
-                <img src="@/assets/centerImg.jpg" class="media">
-            </div>
-            <div class="socialRela">
-                <div class="socialTitle">
-                    支持一下
+            <div class="relaBar" v-for="i in 5" :key="i">
+                <div class="relaName">
+                    腾讯
                 </div>
-                <div class="dimension" v-for="i in 2" :key="i"> 
-                    <div style="font-size:18x">
-                        微信订阅
-                    </div>
-                    <div>
-                    <img src="@/assets/vx.jpg" class="dimensionImg">
-                    </div>
-                    <span style="font-size:13px">
-                        微信订阅最近活动
-                    </span>
+                <div class="infor">
+                    1205586003@qq.com
                 </div>
             </div>
         </div>
-        <div class="talk">
-            <div class="talkTitle">
-                留言板
+
+        <div class="socialMedia">
+            <img src="@/assets/centerImg.jpg" class="media">
+        </div>
+        <div class="socialRelaRight">
+            <div class="socialTitle">
+                支持一下
             </div>
-            <div class="talkContent">
-                <div class="talkText" v-for="i in 12 " :key="i">
-                    <div class="user">
-                        <div class="userIcon">
-                            <img src="@/assets/default.jpg" class="userImge">
-                        </div>
-                        <span class="userId">
-                            Asia
-                        </span>
-                    </div>
-                    <div class="text">
-                        真棒呀，设计的真的是一流呀。您太厉害了，我要好好和你学习!!!!!!!!!!!!!!!!你真的是我的榜样呀
-                    </div>
+            <div class="dimension" v-for="i in 2" :key="i">
+                <div style="font-size:18x">
+                    微信订阅
+                </div>
+                <div>
+                    <img src="@/assets/vx.jpg" class="dimensionImg">
+                </div>
+
+                <div style="font-size:13px">
+                    微信订阅最近活动
                 </div>
             </div>
-            <div class="talkOther">
-                <span>
-                    查看其它留言 >
-                </span>
+        </div>
+    </div>
+    <div class="talk">
+        <div class="talkTitle">
+            留言板
+        </div>
+        <div class="talkContent">
+            <div class="talkText" v-for="i in 12 " :key="i">
+                <div class="user">
+                    <div class="userIcon">
+                        <img src="@/assets/default.jpg" class="userImge">
+                    </div>
+                    <span class="userId">
+                        Asia
+                    </span>
+                </div>
+                <div class="text">
+                    真棒呀，设计的真的是一流呀。您太厉害了，我要好好和你学习!!!!!!!!!!!!!!!!你真的是我的榜样呀
+                </div>
             </div>
+        </div>
+        <div class="talkOther">
+            <span>
+                查看其它留言 >
+            </span>
         </div>
     </div>
 </div>
@@ -76,6 +71,9 @@
 <script>
 export default {
     name: 'Introduction',
+    props: [
+        "height", "width"
+    ],
     components: {}
 }
 </script>
@@ -83,13 +81,11 @@ export default {
 <style scoped>
 .introduction {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
+    margin: 0 auto;
+    height: 100%;
 }
 
 .title {
-    margin: 120px 0 20px 0;
     text-align: center;
     width: 100%;
     height: 150px;
@@ -97,28 +93,17 @@ export default {
 }
 
 .mainPart {
-    width: 100%;
-    height: 75%;
-    /* height: 1080px; */
-    /* height: 100%; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.social {
+    width: (100% -30px);
+    height: calc(100% - 450px);
     display: flex;
     flex-direction: row;
     align-items: center;
-    max-width: 1500px;
-    width: 100%;
-    height: 60%;
 }
 
 .talk {
-    width: 100%;
-    height: 30%;
-    max-width: 1500px;
+    width: calc(80% - 30px);
+    height: 250px;
+    padding: 0 15%;
 }
 
 .socialTitle {
@@ -127,55 +112,49 @@ export default {
     font-weight: 500;
     height: 40px;
     margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
 }
 
-.socialRela {
+.socialRelaLeft {
     flex-grow: 1;
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /* max-width: 250px; */
+    justify-content: center;
+}
+
+.socialRelaRight {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .relaBar {
-    /* width: 100%; */
     height: 80px;
-    display: flex;
-    flex-direction: row;
-    margin: 10px 0 0 0;
+    margin: 0 10px 5px 0;
+    width: 100%;
 }
 
 .socialMedia {
-    flex-grow: 5;
-    padding: 0 25px 0 25px;
-    /* max-width: 600px; */
+    flex-grow: 4;
+    padding: 15px 15px;
     height: 100%;
     width: 800px;
 }
 
-.relaLogo {
-    max-width: 80px;
-    width: 40%;
-    /* min-height: 40px; */
-    height: 80px;
-}
-
-.relaInfor {
-    width: 60%;
+.infor {
+    width: 100%;
+    height: 24px;
     text-align: center;
-    padding: 0 0 0 10px;
-    height: 100%;
 }
 
 .relaName {
+    height: 30px;
     width: 100%;
-    height: 40px;
-}
-
-.relaInfor {
-    width: 100%;
-    height: 40px;
+    text-align: center;
 }
 
 .media {
@@ -183,26 +162,20 @@ export default {
     height: 100%;
 }
 
-.logo {
-    width: 80px;
-    height: 80px;
-}
-
 .talkTitle {
     width: 100%;
     height: 30px;
     text-align: left;
     text-indent: 80px;
-    margin-bottom: 15px;
 }
 
 .talkContent {
     height: 200px;
-    margin-bottom: 15px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     overflow: hidden;
+    width: 100%;
 }
 
 .talkOther {
@@ -256,7 +229,6 @@ export default {
     text-overflow: ellipsis;
     overflow: hidden;
     -webkit-line-clamp: 2;
-    white-space: break-all;
     text-overflow: ellipsis;
     display: -webkit-box;
     white-space: normal;
@@ -271,15 +243,17 @@ export default {
 .dimension {
     height: 150px;
     width: 100%;
+    letter-spacing: 3px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-box-pack: center;
     -webkit-box-align: center;
     text-align: center;
-    margin: 20px;
+    margin: 20px 0;
 }
 
 .dimensionImg {
+    margin: 0 calc(100% - 100px);
     width: 100px;
     height: 100px;
     margin: 5px;
