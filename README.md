@@ -9,16 +9,7 @@ npm install
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 开发须知
++ 响应式布局，分割点768px,960px,1200px
++ scss vs less，主题设置？
++ Vue render 自定义组件，自动化注册

@@ -10,6 +10,8 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "element-ui": "^2.14.1",
+    "less": "^4.1.1",
+    "path": "^0.12.7",
     "vue": "^2.6.11"
   },
   "devDependencies": {

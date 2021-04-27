@@ -20,7 +20,7 @@
         </div>
 
         <div class="socialMedia">
-            <img src="@/assets/centerImg.jpg" class="media">
+            <img src="@/assets/images/centerImg.jpg" class="media">
         </div>
         <div class="socialRelaRight">
             <div class="socialTitle">
@@ -31,7 +31,7 @@
                     微信订阅
                 </div>
                 <div>
-                    <img src="@/assets/vx.jpg" class="dimensionImg">
+                    <img src="@/assets/images/vx.jpg" class="dimensionImg">
                 </div>
 
                 <div style="font-size:13px">
@@ -48,7 +48,7 @@
             <div class="talkText" v-for="i in 12 " :key="i">
                 <div class="user">
                     <div class="userIcon">
-                        <img src="@/assets/default.jpg" class="userImge">
+                        <img src="@/assets/images/default.jpg" class="userImge">
                     </div>
                     <span class="userId">
                         Asia

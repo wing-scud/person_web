@@ -18,12 +18,12 @@ requireComponent.keys().forEach((fileName) => {
     .replace(/^\.\/[A-Za-z]+\//, '')
     // Remove .vue
     .replace(/\.(vue)/, '')//=>SliderBar
-    // Split up kebabs
-    // .split('-')
-    // // Upper case
-    // .map((kebab) => kebab.charAt(0).toUpperCase() + kebab.slice(1))
-    // // Concatenated
-    // .join('')
+  // Split up kebabs
+  // .split('-')
+  // // Upper case
+  // .map((kebab) => kebab.charAt(0).toUpperCase() + kebab.slice(1))
+  // // Concatenated
+  // .join('')
 
   // 全局注册 component
   Vue.component(componentName, componentConfig.default || componentConfig)

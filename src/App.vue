@@ -5,8 +5,7 @@
 </template>
 
 <script>
-import Index from './Index.vue'
-
+import Index from './view/Index.vue'
 export default {
     name: 'App',
     components: {
@@ -16,15 +15,6 @@ export default {
 </script>
 
 <style>
-html,
-body,
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+@import url('./assets/css/globe.css');
+@import url('./assets/css/iconfont.css');
 </style>
